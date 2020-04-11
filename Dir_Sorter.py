@@ -1,5 +1,4 @@
 import shutil
-import os
 from pathlib import Path
 
 directory = "/home/n3ura/Downloads/old/test"
@@ -15,31 +14,20 @@ categories = {
 }
 
 
-def get_subdirectories():
-    subDirectories = set()
-    for folder in os.scandir(directory):
-        subDirectories.add(folder.name)
-    return subDirectories
-
-
 def create_directories():
-    folders_to_be_created = set(categories.keys()) - get_subdirectories()
+    folders_to_be_created = set(categories.keys())
     for folder in folders_to_be_created:
-        os.mkdir(directory + "/" + folder)
+        Path(directory + "/" + folder).mkdir(exist_ok=True)
 
 
 def organizer(path):
     create_directories()
-    for file in os.listdir(path):
-        if os.path.isfile(path + "/" + file):
-            src_path = path + "/" + file
-            for dirname, extensions in categories.items():
-                if extensions is None or file.endswith(tuple(extensions)):
-                    dest_path = os.path.join(path, dirname, file)
-                    shutil.move(src_path, dest_path)
-                    break
-
-
+    files = [x for x in Path(path).iterdir() if x.is_file()]
+    for src_path in files:
+        for dirname, extensions in categories.items():
+            if extensions is None or src_path.name.endswith(tuple(extensions)):
+                shutil.move(src_path, Path(directory).joinpath(dirname, src_path.name))
+                break
 
 if __name__ == '__main__':
     organizer(directory)
