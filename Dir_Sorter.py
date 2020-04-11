@@ -16,13 +16,14 @@ categories = {
 
 
 def get_subdirectories():
-    sub_folders_names = [os.path.basename(x[0]) for x in os.walk(directory)]
-    sub_folders_names.pop(0)
-    return set(sub_folders_names)
+    subDirectories = set()
+    for folder in os.scandir(directory):
+        subDirectories.add(folder.name)
+    return subDirectories
 
 
 def create_directories():
-    folders_to_be_created = set(categories.keys()) - set(get_subdirectories())
+    folders_to_be_created = set(categories.keys()) - get_subdirectories()
     for folder in folders_to_be_created:
         os.mkdir(directory + "/" + folder)
 
@@ -38,6 +39,8 @@ def organizer(path):
                     shutil.move(src_path, dest_path)
                     break
 
+
+
 if __name__ == '__main__':
     organizer(directory)
-    print("finished")
+    print("Finished")
