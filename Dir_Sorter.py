@@ -16,7 +16,7 @@ categories = {
 
 def create_directories():
     for folder in set(categories.keys()):
-        Path(directory + "/" + folder).mkdir(exist_ok=True)
+        Path(Path(directory).joinpath(folder)).mkdir(exist_ok=True)
 
 
 def organizer(path):
