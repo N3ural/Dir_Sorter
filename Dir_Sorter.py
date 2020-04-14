@@ -5,11 +5,11 @@ directory = "/home/n3ura/Downloads/old/test"
 
 categories = {
     "Images": [".jpg", ".png", ".jpeg", ".raw"],
-    "Music": [".wav", ".mp3", ".ogg", ".flac"],
+    "Music": [".wav", ".aif", ".mp3", ".mid", ".m4r", ".nbs", ".iff", ".m3u", ".m4a", ".mid", ".mpa", ".wma", ".ogg", ".flac"],
     "Archives": [".zip", ".rar", ".7z", ".tar"],
     "Iso": [".iso", ".img"],
-    "Video": [".mp4", ".avi", ".mkv", ".mpeg"],
-    "Text": [".pdf", ".docx", ".eds", ".txt"],
+    "Video": [".mpg", ".mov", ".wmv", ".rm", ".mp4", ".3g2", ".3gp", ".asf", ".avi", ".flv", ".m4v", ".srt", ".swf", ".vob", ".mkv", ".mpeg"],
+    "Text": [".pdf", ".docx", ".eds", ".txt", ".epub", ".odt", ".rtf"],
     "Other": None
 }
 
