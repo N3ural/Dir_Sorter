@@ -1,4 +1,4 @@
 # Dir_Sorter
 
-
-This simple script move all the file of a directory to the relatives folders types
+Too lazy to organize my downloads folder.
+This simple script move all the file of a directory to the relatives folders types.
